@@ -1,0 +1,690 @@
+
+/* =========================
+   1. GENERAL SETTINGS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f6fa;
+    color: #20232c;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+
+/* =========================
+   2. MAIN LAYOUT
+========================= */
+
+.app-layout {
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px 18px;
+
+    background-color: #ffffff;
+    border-right: 1px solid #e6e8ef;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 30px 35px;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   3. SIDEBAR
+========================= */
+
+.logo {
+    font-size: 25px;
+    color: #3155d9;
+    margin-bottom: 35px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    overflow-y: auto;
+}
+
+.nav-heading {
+    color: #9ba1b1;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+
+    margin: 22px 0 8px 10px;
+}
+
+.nav-item {
+    width: 100%;
+    text-align: left;
+
+    padding: 12px 14px;
+    border-radius: 9px;
+
+    background-color: transparent;
+    color: #555c6b;
+
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.nav-item:hover {
+    background-color: #eef1ff;
+    color: #3155d9;
+}
+
+.nav-item.active {
+    background-color: #e9edff;
+    color: #3155d9;
+    font-weight: bold;
+}
+
+.about-button {
+    margin-top: auto;
+    padding: 13px;
+    border-radius: 9px;
+
+    background-color: #3155d9;
+    color: white;
+
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.about-button:hover {
+    background-color: #2442b5;
+}
+
+
+/* =========================
+   4. TOP BAR
+========================= */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-bottom: 35px;
+}
+
+#searchInput {
+    width: min(450px, 70%);
+    padding: 13px 17px;
+
+    border: 1px solid #e0e3eb;
+    border-radius: 10px;
+    outline: none;
+
+    background-color: white;
+    color: #20232c;
+
+    font-size: 14px;
+}
+
+#searchInput:focus {
+    border-color: #3155d9;
+}
+
+#themeToggle {
+    padding: 12px 18px;
+    border-radius: 9px;
+
+    background-color: #202b4b;
+    color: white;
+
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+#themeToggle:hover {
+    background-color: #35466f;
+}
+
+
+/* =========================
+   5. PAGE SYSTEM
+========================= */
+
+.view {
+    display: none;
+    animation: pageFade 0.25s ease;
+}
+
+.view.active {
+    display: block;
+}
+
+@keyframes pageFade {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   6. HOME PAGE
+========================= */
+
+.welcome-section {
+    text-align: center;
+    margin: 35px 0 30px;
+}
+
+.welcome-section h1 {
+    font-size: clamp(25px, 4vw, 38px);
+    margin-bottom: 14px;
+}
+
+.welcome-section p {
+    color: #737b8b;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.hero-artwork {
+    width: 100%;
+    min-height: 360px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background:
+        radial-gradient(circle at 20% 20%, #536fcf, transparent 35%),
+        radial-gradient(circle at 80% 80%, #9d4eaa, transparent 40%),
+        linear-gradient(135deg, #131b38, #293d70);
+
+    box-shadow: 0 12px 35px rgba(20, 30, 70, 0.16);
+}
+
+.hero-artwork::before {
+    content: "AMA GAMING";
+
+    color: white;
+    font-size: clamp(30px, 6vw, 65px);
+    font-weight: bold;
+    letter-spacing: 6px;
+    text-align: center;
+}
+
+.hero-artwork::after {
+    content: "DISCOVER YOUR NEXT ADVENTURE";
+
+    color: #e5eaff;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-top: 18px;
+    text-align: center;
+}
+
+
+/* =========================
+   7. CATEGORY & GAME PAGES
+========================= */
+
+#categoryTitle,
+#favoritesView h1,
+#aboutView h1 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* Game cards will be created with JavaScript */
+
+.game-card {
+    position: relative;
+    overflow: hidden;
+
+    background-color: white;
+    border-radius: 12px;
+
+    border: 1px solid #e9eaf0;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(25, 35, 70, 0.12);
+}
+
+.game-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+}
+
+.game-card h3 {
+    padding: 13px 13px 18px;
+    font-size: 15px;
+}
+
+.favorite-btn {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+    background-color: #f0f1f5;
+
+    color: #777d89;
+    font-size: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.favorite-btn.is-favorite {
+    color: #ef354f;
+    background-color: #fff0f2;
+}
+
+
+/* =========================
+   8. GAME DETAILS
+========================= */
+
+#backButton {
+    padding: 10px 16px;
+    margin-bottom: 25px;
+
+    background-color: #e9edff;
+    color: #3155d9;
+    border-radius: 8px;
+}
+
+#gameDetails {
+    max-width: 850px;
+}
+
+#gameDetails img {
+    width: 100%;
+    max-height: 440px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+#gameDetails h1 {
+    margin: 22px 0 12px;
+    font-size: 30px;
+}
+
+#gameDetails p {
+    color: #646c7c;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   9. ABOUT ME
+========================= */
+
+#aboutView p {
+    max-width: 800px;
+    padding: 25px;
+
+    background-color: white;
+    border-radius: 12px;
+
+    color: #555d6d;
+    line-height: 2.2;
+    font-size: 16px;
+
+    white-space: pre-line;
+}
+
+
+/* =========================
+   10. DARK MODE
+========================= */
+
+body.dark {
+    background-color: #10182e;
+    color: #f3f5fc;
+}
+
+body.dark .sidebar,
+body.dark .game-card,
+body.dark #aboutView p {
+    background-color: #192541;
+    border-color: #2c3a5b;
+}
+
+body.dark .logo {
+    color: #91a7ff;
+}
+
+body.dark .nav-item {
+    color: #c5cde0;
+}
+
+body.dark .nav-item:hover,
+body.dark .nav-item.active {
+    background-color: #293b65;
+    color: #a9baff;
+}
+
+body.dark .nav-heading {
+    color: #8794b2;
+}
+
+body.dark #searchInput {
+    background-color: #192541;
+    border-color: #344363;
+    color: white;
+}
+
+body.dark .welcome-section p,
+body.dark #gameDetails p,
+body.dark #aboutView p {
+    color: #b9c4db;
+}
+
+body.dark #aboutView p {
+    background-color: #192541;
+}
+
+body.dark .favorite-btn {
+    background-color: #293b65;
+    color: #c2cbe0;
+}
+
+body.dark .favorite-btn.is-favorite {
+    color: #ff536c;
+    background-color: #4a293e;
+}
+
+body.dark #backButton {
+    background-color: #293b65;
+    color: #b7c5ff;
+}
+
+
+/* =========================
+   11. RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 1100px) {
+    .games-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+        padding: 22px;
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 18px;
+    }
+
+    .topbar {
+        flex-wrap: wrap;
+    }
+
+    #searchInput {
+        width: 100%;
+    }
+
+    .hero-artwork {
+        min-height: 240px;
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+   GAME IMAGE CONTAINERS
+========================= */
+
+.game-card {
+    cursor: pointer;
+}
+
+.game-image-wrap,
+.details-image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: linear-gradient(135deg, #172448, #5269a5);
+}
+
+.game-card .game-image-wrap img,
+.details-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #172448, #5269a5);
+}
+
+.image-placeholder[hidden] {
+    display: none;
+}
+
+.details-image-wrap .favorite-btn {
+    z-index: 2;
+}
+
+
+/* =========================
+   CATEGORY GAME COUNTER
+========================= */
+
+.category-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 25px;
+}
+
+#categoryTitle {
+    margin-bottom: 0;
+}
+
+.game-count {
+    flex: 0 0 auto;
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: #e9edff;
+    color: #3155d9;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+body.dark .game-count {
+    background: #293b65;
+    color: #c5d0ff;
+}
+
+
+/* =========================
+   HOME IMAGE AND LIGHT MODE
+========================= */
+
+.hero-artwork {
+    width: 100%;
+    min-height: 360px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background-color: #17213b;
+    background-image:
+        linear-gradient(90deg, rgba(8, 15, 35, 0.36), rgba(8, 15, 35, 0.08)),
+        url("assets/images/home-banner.webp");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 12px 35px rgba(20, 30, 70, 0.18);
+}
+
+.hero-artwork::before {
+    content: "AMA GAMING";
+    color: white;
+    font-size: clamp(30px, 6vw, 65px);
+    font-weight: bold;
+    letter-spacing: 6px;
+    text-align: center;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.55);
+}
+
+.hero-artwork::after {
+    content: "DISCOVER YOUR NEXT ADVENTURE";
+    color: #f1f4ff;
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-top: 18px;
+    text-align: center;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+}
+
+/* Dark mode keeps the original, richer image treatment. */
+body.dark .hero-artwork {
+    background-image:
+        linear-gradient(90deg, rgba(8, 15, 35, 0.36), rgba(8, 15, 35, 0.08)),
+        url("assets/images/home-banner.webp");
+}
+
+/* Light mode gently lifts the same artwork without changing its composition. */
+body:not(.dark) .hero-artwork {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16)),
+        url("assets/images/home-banner.webp");
+}
+
+
+/* =========================
+   ABOUT ME - PERSIAN TEXT
+========================= */
+
+#aboutView {
+    direction: rtl;
+    text-align: right;
+    font-family: "B Nazanin", Tahoma, sans-serif;
+}
+
+#aboutView h1,
+#aboutView p {
+    direction: rtl;
+    text-align: right;
+    font-family: "B Nazanin", Tahoma, sans-serif;
+}
+
+#aboutView p {
+    line-height: 2.1;
+    font-size: 19px;
+}
+
+
+/* =========================
+   SMALL SCREEN ADJUSTMENTS
+========================= */
+
+@media (max-width: 550px) {
+    .category-heading {
+        align-items: flex-start;
+    }
+
+    .game-count {
+        margin-top: 2px;
+        font-size: 12px;
+    }
+
+    .hero-artwork {
+        min-height: 260px;
+    }
+}

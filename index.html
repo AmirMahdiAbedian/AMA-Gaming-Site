@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AMA Gaming Site</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+
+            <h2 class="logo">AMA Gaming</h2>
+
+            <nav class="navigation">
+
+                <button class="nav-item active"
+                    data-view="home">Home</button>
+
+                <p class="nav-heading">CATEGORIES</p>
+
+                <button class="nav-item" data-category="Action">Action</button>
+                <button class="nav-item" data-category="Adventure">Adventure</button>
+                <button class="nav-item" data-category="RPG">RPG</button>
+                <button class="nav-item" data-category="Racing">Racing</button>
+                <button class="nav-item" data-category="Sports">Sports</button>
+                <button class="nav-item" data-category="Strategy">Strategy</button>
+                <button class="nav-item" data-category="Simulation">Simulation</button>
+                <button class="nav-item" data-category="Indie">Indie</button>
+
+                <p class="nav-heading">PERSONAL</p>
+
+                <button class="nav-item"
+                    data-view="favorites">♥ Favorites</button>
+
+            </nav>
+
+            <button class="about-button"
+                data-view="about">About Me</button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search games..."
+                >
+
+                <button id="themeToggle">
+                    Dark Mode
+                </button>
+
+            </header>
+
+
+            <!-- HOME PAGE -->
+            <section class="view active" id="homeView">
+
+                <div class="welcome-section">
+
+                    <h1>Welcome to AMA Gaming Site</h1>
+
+                    <p>
+                        In this site, you can choose your
+                        FAVORITE VIDEO GAME!!
+                    </p>
+
+                </div>
+
+<div class="hero-artwork" id="heroArtwork">
+</div>
+
+            </section>
+
+
+            <!-- CATEGORY PAGE -->
+            <section class="view" id="categoryView">
+
+                <div class="category-heading">
+                    <h1 id="categoryTitle">Action</h1>
+                    <span class="game-count" id="gameCount" aria-live="polite">10 games</span>
+                </div>
+
+                <div class="games-grid" id="gamesGrid">
+                    <!-- Game cards will be generated with JavaScript -->
+                </div>
+
+            </section>
+
+
+            <!-- GAME DETAILS PAGE -->
+            <section class="view" id="detailsView">
+
+                <button id="backButton">
+                    ← Back
+                </button>
+
+                <div id="gameDetails"></div>
+
+            </section>
+
+
+            <!-- FAVORITES PAGE -->
+            <section class="view" id="favoritesView">
+
+                <h1>My Favorite Games</h1>
+
+                <div class="games-grid" id="favoritesGrid"></div>
+
+            </section>
+
+
+            <!-- ABOUT ME PAGE -->
+            <section class="view" id="aboutView" dir="rtl">
+
+                <h1>About Me</h1>
+
+                <p>
+                    سلام، من امیرمهدی هستم و به برنامه نویسی
+                    و بازی سازی علاقه دارم.
+
+                    این سایت با نام (AMA Gaming Site) با کمک
+                    هوش مصنوعی و کدنویسی و توسعه توسط خودم
+                    ساخته شده؛ یعنی ترکیبی از ایده های من و
+                    توانایی های هوش مصنوعی است.
+
+                    این سایت مخصوص کارسوق Apping ساخته شده
+                    و در آن چند بازی شناخته شده از دسته های
+                    AAA و AA را در چند جمله معرفی کرده ایم.
+
+                    امیدوارم از این سایت خوشتون اومده باشه..
+
+                    باتشکر؛ امیرمهدی
+                </p>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
